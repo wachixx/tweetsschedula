@@ -2,28 +2,30 @@ const Validate = (inputs) => {
 
    const errors = {};
    const today = new Date().setHours(0,0,0,0);
-   const now = new Date().getHours() + ":" + new Date().getMinutes();
+   const selectedDate = new Date(inputs.tweetDate);
+   const selecteTime = inputs.tweetTime;
 
-   //tweet message Errors
-   if(!inputs.tweetText){
+   const selectedDateTime = new Date(inputs.tweetDate);
+   selectedDateTime.setHours(selecteTime.split(':')[0]);
+   selectedDateTime.setMinutes(selecteTime.split(':')[1]);
+
+   
+   if(!inputs.tweetText){    //tweet message Errors
        errors.tweetText = 'Check tweet message';
    }
-   //time message Errors
-   if(!inputs.tweetTime){
+   
+   if(!inputs.tweetTime){    //time message Errors
        errors.tweetTime = 'Check time';
    }
-   if((Date.parse(inputs.tweetDate) ===  today)){
-    console.log(inputs.tweetDate +" "+ inputs.tweetTime +"-" + inputs.tweetDate +" "+ now)
-        if(Date.parse(inputs.tweetDate +" "+ inputs.tweetTime) < (Date.parse(inputs.tweetDate +" "+  now))){
-            errors.tweetTime = 'Check time';
-        }
+   if(selectedDateTime < new Date()){  //If on the same day, time should not be more than the current time
+       errors.tweetTime = 'Check time';
    }
 
-   //date message Errors
-   if(!inputs.tweetDate){
+   if(!inputs.tweetDate){   //date message Errors
        errors.tweetDate = 'Check date';
    }
-   if(Date.parse(inputs.tweetDate) <  today ){
+   
+   if(selectedDate <  today ){   //date should not be in the past
       errors.tweetDate = 'Check date';
    }
 

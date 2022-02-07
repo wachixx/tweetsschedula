@@ -9,11 +9,20 @@ import {Context}  from '../context/Store';
 
     const [state, dispatch] = useContext(Context);
 
-    const {inputs, handleInputChange, handleSubmit ,errors} = useForm({tweetText:'', tweetDate:'', tweetTime:''},Validate, props);
+
+    const makeInputs = () => {
+        let inputs = {tweetText:'', tweetDate:'', tweetTime:''};
+        if(state.tweet){
+            inputs = {tweetText: state.tweet.tweetText, tweetDate: state.tweet.tweetText, tweetTime: state.tweet.tweetText}
+        }
+        return inputs;
+    }
+
+    const {inputs, handleInputChange, handleSubmit ,errors} = useForm(makeInputs(),Validate, props);
 
     //rerender when state changes
     useEffect(()=>{
-    },[state.tweet])
+    },[state.tweets, state.tweet])
 
      return(
         <form onSubmit={handleSubmit}>

@@ -11,7 +11,6 @@ const Tweet = (props) => {
 
     const showEditModal = (tweet) =>{
         dispatch({type:"SET_EDIT_TWEET", payload: tweet});
-        console.log(state);
         props.setShowModal(true);
     }
 

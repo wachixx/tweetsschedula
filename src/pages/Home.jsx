@@ -11,7 +11,6 @@ const Home = () => {
 
   //rerender when state changes
   useEffect(()=>{
-      console.log(state);
   },[state.tweets])
 
 
