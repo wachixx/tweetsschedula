@@ -2,13 +2,13 @@
     position: fixed;
     z-index: 500;
     background-color: white;
-    width: 30%;
     border: 1px solid #ccc;
     padding: 16px;
-    left: 35%;
     top: 5%;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+    width: 98%;
+    left: calc(51% - 180px);
 }
 
 .backdrop {
@@ -21,9 +21,86 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-@media (min-width: 600px) {
-    .Modal {
-        width: 30%;
+
+@media only screen and (min-width: 280px) {
+    .modal {
+        width: 95%;
+        left: calc(52% - 140px);
+    }
+}
+
+
+@media only screen and (min-width: 375px) {
+    .modal {
+        width: 95%;
+        left: calc(50% - 178px);
+    }
+}
+
+
+@media only screen and (min-width: 390px) {
+    .modal {
+        width: 95%;
+        left: calc(50% - 185px);
+    }
+}
+
+@media only screen and (min-width: 412px), (min-width: 414px) {
+    .modal {
+        width: 95%;
+        left: calc(50% - 196px);
+    }
+}
+
+@media only screen and (min-width: 540px) {
+    .modal {    
+        width: 98%;
+        left: calc(47% - 250px);
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .modal {
+        width: 100%;
         left: calc(50% - 250px);
     }
 }
+
+@media only screen and (min-width: 576px) { 
+    .modal {
+        width: 100%;
+        left: calc(50% - 250px);
+    }
+}
+
+
+@media only screen and (min-width: 768px) { 
+    .modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+ }
+
+
+@media only screen and (min-width: 992px) { 
+    .modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+ }
+
+
+@media only screen and (min-width: 1200px) { 
+    .modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+ }
+
+
+@media only screen and (min-width: 1400px) { 
+    .modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+ }

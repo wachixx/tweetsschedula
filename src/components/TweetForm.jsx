@@ -13,9 +13,6 @@ import {Context}  from '../context/Store';
 
     //rerender when state changes
     useEffect(()=>{
-       if(state.tweet){
-           //setInputs(state.tweet);
-       }
     },[state.tweet])
 
      return(
