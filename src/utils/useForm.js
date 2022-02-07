@@ -27,7 +27,6 @@ const useForm = (initialValues, validate, props) => {
                 dispatch({type:"UPDATE", payload: editTweet(state.tweet, inputs)});
                 dispatch({type:"SET_EDIT_TWEET", payload: null});
             }
-            setInputs(initialValues);
             event.target.reset();
             props.setShowModal(false);
 		}
@@ -59,12 +58,6 @@ const editTweet = (tweet, inputs) => {
         id: tweet.id, ...inputs
     }
     return updatedTweet;
-}
-
-const resetValues = (inputs) => {
-    for (const key in inputs) {
-       delete inputs[key];
-    }
 }
 
 export default useForm;

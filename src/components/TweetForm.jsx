@@ -20,9 +20,7 @@ import {Context}  from '../context/Store';
 
     const {inputs, handleInputChange, handleSubmit ,errors} = useForm(makeInputs(),Validate, props);
 
-    //rerender when state changes
-    useEffect(()=>{
-        console.log(inputs)
+    useEffect(()=>{  //rerender when tweet changes
     },[state.tweet])
 
      return(

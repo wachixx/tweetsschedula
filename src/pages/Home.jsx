@@ -7,23 +7,27 @@ import {Context}  from '../context/Store';
 const Home = () => {
   
   const [state, dispatch] = useContext(Context);
+  const [tweets, setTweets] = useState(state.tweets);
   const [showModal, setShowModal] = useState(false);
 
-  //rerender when state changes
   useEffect(()=>{
-  },[state.tweets])
+    let sortedTweets = state.tweets.sort(function(a,b){
+      return new Date(a.tweetDate +" "+ a.tweetTime) - new Date(b.tweetDate +" "+ b.tweetTime);
+    });
+    setTweets(sortedTweets);
+  },[state.tweets], tweets)
 
 
   return (
     <div className="app-container">
       <header className="app-header flex-row-btwn">
-          <p><strong>{state.tweets?.length}</strong> scheduled</p>
+          <p><strong>{tweets?.length}</strong> scheduled</p>
           <button onClick={()=>setShowModal(!showModal)} className="btn-blue">Schedule a tweet</button>
       </header>
 
       <section className="tweets-wrapper">
-           {state.tweets?.length > 0?
-             state.tweets?.map((tweet, i)=>{
+           {tweets?.length > 0?
+             tweets?.map((tweet, i)=>{
                 return(
                  <Tweet tweet={tweet} key = {i} setShowModal={setShowModal}/>
                 )
